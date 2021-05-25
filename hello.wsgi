@@ -1,7 +1,6 @@
-def app(environ, start_response):
- status = '200 OK'
- output = b'First Python Web App Deployment!!!'
- response_header = [('Content-type', 'text/plain'),
- ('Content-Length', str(len(output)))]
- start_response(status, response_headers)
- return [output]
+def application(environ, start_response):
+  status = '200 OK'
+  headers = [('Content-type', 'text/plain; charset=utf-8')]
+  body = 'hello, world This is from CICD pipeline. Welcome '.encode('utf-8')
+  start_response(status, headers)
+  return [body]
